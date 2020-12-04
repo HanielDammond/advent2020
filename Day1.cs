@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 
 namespace advent2020
 {
@@ -7,12 +6,12 @@ namespace advent2020
 	{
 		public static void Solve()
 		{
-			Console.WriteLine("Day 1");
-			var intList = System.IO.File.ReadAllLines(@"day1input.txt").Select(int.Parse);
+			System.Console.WriteLine("Day 1");
+			var intList = System.IO.File.ReadAllLines("day1input.txt").Select(int.Parse);
 			var part1 = intList.SelectMany(x => intList, (y, z) => new { y, z, s = y * z }).Where(x => x.y + x.z == 2020).First().s;
-			Console.WriteLine($"Part1: {part1}");
+			System.Console.WriteLine($"Part1: {part1}");
 			var part2 = intList.SelectMany(x => intList, (y, z) => new { y, z }).SelectMany(x => intList, (y, z) => new { a = y.y, b = y.z, c = z, s = y.y * y.z * z }).Where(x => x.a + x.b + x.c == 2020).First().s;
-			Console.WriteLine($"Part2: {part2}");
+			System.Console.WriteLine($"Part2: {part2}");
 		}
 	}
 }
